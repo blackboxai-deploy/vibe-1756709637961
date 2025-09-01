@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>TuFinanza - Finanzas Personales</title>
+    <meta name="description" content="Tu asistente personal de finanzas con soporte para múltiples divisas. Funciona offline.">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3B82F6">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="TuFinanza">
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlR1RmluYW56YSAtIEZpbmFuemFzIFBlcnNvbmFsZXMiLAogICJzaG9ydF9uYW1lIjogIlR1RmluYW56YSIsCiAgImRlc2NyaXB0aW9uIjogIlR1IGFzaXN0ZW50ZSBwZXJzb25hbCBkZSBmaW5hbnphcyBjb24gc29wb3J0ZSBwYXJhIG3Dumx0aXBsZXMgZGl2aXNhcy4gRnVuY2lvbmEgb2ZmbGluZS4iLAogICJzdGFydF91cmwiOiAiLyIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiI2ZmZmZmZiIsCiAgInRoZW1lX2NvbG9yIjogIiMzQjgyRjYiLAogICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdC1wcmltYXJ5IiwKICAic2NvcGUiOiAiLyIsCiAgImxhbmciOiAiZXMiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUIzYVdSMGFEMGlNVGt5SWlCb1pXbG5hSFE5SWpFNU1pSWlkbWxsZDBKdmVEMGlNQ0F3SURFNU1pQXhPVElpSUdacGJHdzlJbTV2Ym1VaUlIaHRiRzV6UFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk4eU1EQXdMM04yWnlJK0NqeHlaV04wSUhkcFpIUm9QU0k0T0NJZ2FHVnBaMmgwUFNJNE9DSWlablZwYkd3OUluVnliQ2dpSTJkeVlXUnBaVzUwTUY5c2FXNWXZVJUQ1NiTnBlOWloZGRUOHVSVG9nSUdacGJHdDBaWEk5SWlNM1F6TkJSRVFpTHowR01ESXdNVGNOTXprMU56Z3hOalF6WnlBOVhIUTFYalEzY0VKeGJsOWhibEJoZTFkdVJFWnVNSE01ZDBabFNqaE5ZVU5zWVhkMWNXWmtRMkZ2WkVGcFdWVlFjMGhSZFV0YVUzZFZka1k0SXc9PSIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsCiAgICAgICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSIKICAgIH0KICBdLAogICJkaXNwbGF5X292ZXJyaWRlIjogWyJzdGFuZGFsb25lIiwgIm1pbmltYWwtdWkiXSwKICAicHJlZmVyX3JlbGF0ZWRfYXBwbGljYXRpb25zIjogZmFsc2UKfQo=">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0idXJsKCNncmFkaWVudDBfbGluZWFyXzFfMSkiLz4KPHBhdGggZD0iTTE2IDhDMTMuMiA4IDExIDEwLjIgMTEgMTNWMTlDMTEgMjEuOCAxMy4yIDI0IDE2IDI0QzE4LjggMjQgMjEgMjEuOCAyMSAxOVYxM0MyMSAxMC4yIDE4LjggOCAxNiA4WiIgZmlsbD0id2hpdGUiLz4KPGNpcmNsZSBjeD0iMTQiIGN5PSIxNSIgcj0iMiIgZmlsbD0iIzNCODJGNiIvPgo8Y2lyY2xlIGN4PSIxOCIgY3k9IjE1IiByPSIyIiBmaWxsPSIjM0I4MkY2Ii8+CjxwYXRoIGQ9Ik0xNCAxN0MxNCAxOC4xIDE0LjkgMTkgMTYgMTlDMTcuMSAxOSAxOCAxOC4xIDE4IDE3SDE0WiIgZmlsbD0iIzNCODJGNiIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudDBfbGluZWFyXzFfMSIgeDE9IjAiIHkxPSIwIiB4Mj0iMzIiIHkyPSIzMiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjM0I4MkY2Ii8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzEwQjk4MSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo=">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <style>
+        body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        .safe-area-pb { padding-bottom: env(safe-area-inset-bottom); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useCallback } = React;
+        const { createRoot } = ReactDOM;
+
+        // =========================
+        // CONSTANTS & UTILITIES
+        // =========================
+        
+        const CURRENCIES = {
+            USD: { symbol: '$', name: 'Dólar Americano', code: 'USD' },
+            ARS: { symbol: '$', name: 'Peso Argentino', code: 'ARS' },
+            EUR: { symbol: '€', name: 'Euro', code: 'EUR' },
+            COP: { symbol: '$', name: 'Peso Colombiano', code: 'COP' },
+            MXN: { symbol: '$', name: 'Peso Mexicano', code: 'MXN' },
+            CLP: { symbol: '$', name: 'Peso Chileno', code: 'CLP' },
+            PEN: { symbol: 'S/', name: 'Sol Peruano', code: 'PEN' },
+            UYU: { symbol: '$', name: 'Peso Uruguayo', code: 'UYU' },
+            BRL: { symbol: 'R$', name: 'Real Brasileño', code: 'BRL' },
+            GBP: { symbol: '£', name: 'Libra Esterlina', code: 'GBP' }
+        };
+
+        const COUNTRIES = [
+            { code: 'AR', name: 'Argentina', currency: 'ARS', flag: '🇦🇷' },
+            { code: 'US', name: 'Estados Unidos', currency: 'USD', flag: '🇺🇸' },
+            { code: 'MX', name: 'México', currency: 'MXN', flag: '🇲🇽' },
+            { code: 'CO', name: 'Colombia', currency: 'COP', flag: '🇨🇴' },
+            { code: 'CL', name: 'Chile', currency: 'CLP', flag: '🇨🇱' },
+            { code: 'PE', name: 'Perú', currency: 'PEN', flag: '🇵🇪' },
+            { code: 'UY', name: 'Uruguay', currency: 'UYU', flag: '🇺🇾' },
+            { code: 'BR', name: 'Brasil', currency: 'BRL', flag: '🇧🇷' },
+            { code: 'ES', name: 'España', currency: 'EUR', flag: '🇪🇸' },
+            { code: 'GB', name: 'Reino Unido', currency: 'GBP', flag: '🇬🇧' },
+        ];
+
+        const CATEGORIES = {
+            income: [
+                { id: 'salary', name: 'Salario', icon: '💰' },
+                { id: 'freelance', name: 'Freelance', icon: '💻' },
+                { id: 'investment', name: 'Inversiones', icon: '📈' },
+                { id: 'other', name: 'Otros', icon: '💎' }
+            ],
+            expense: [
+                { id: 'food', name: 'Alimentación', icon: '🍕' },
+                { id: 'transport', name: 'Transporte', icon: '🚗' },
+                { id: 'utilities', name: 'Servicios', icon: '⚡' },
+                { id: 'entertainment', name: 'Entretenimiento', icon: '🎬' },
+                { id: 'shopping', name: 'Compras', icon: '🛍️' },
+                { id: 'other', name: 'Otros', icon: '📝' }
+            ],
+            saving: [
+                { id: 'emergency', name: 'Emergencias', icon: '🆘' },
+                { id: 'vacation', name: 'Vacaciones', icon: '✈️' },
+                { id: 'general', name: 'Meta General', icon: '🎯' }
+            ]
+        };
+
+        // Exchange rates (simplified)
+        const EXCHANGE_RATES = {
+            USD: 1,
+            ARS: 900, EUR: 0.91, COP: 4000, MXN: 17, CLP: 900,
+            PEN: 3.7, UYU: 38, BRL: 5, GBP: 0.79
+        };
+
+        // Utility functions
+        const generateId = () => Date.now().toString(36) + Math.random().toString(36).substr(2);
+        
+        const formatBalance = (amount, currency) => {
+            const symbol = CURRENCIES[currency]?.symbol || '$';
+            const formatted = new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0,
+            }).format(amount);
+            return `${symbol} ${formatted}`;
+        };
+
+        const formatMovementAmount = (amount, currency) => {
+            const symbol = CURRENCIES[currency]?.symbol || '$';
+            const formatted = new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            }).format(amount);
+            return `${symbol} ${formatted}`;
+        };
+
+        const convertToUSD = (amount, fromCurrency) => {
+            return amount / (EXCHANGE_RATES[fromCurrency] || 1);
+        };
+
+        const convertFromUSD = (usdAmount, toCurrency) => {
+            return usdAmount * (EXCHANGE_RATES[toCurrency] || 1);
+        };
+
+        // =========================
+        // GLOBAL STATE MANAGEMENT
+        // =========================
+        
+        const AppContext = React.createContext();
+        
+        const AppProvider = ({ children }) => {
+            const [userProfile, setUserProfile] = useState(null);
+            const [isOnboarded, setIsOnboarded] = useState(false);
+            const [movements, setMovements] = useState([]);
+            const [savingGoals, setSavingGoals] = useState([]);
+            const [balanceDisplayCurrency, setBalanceDisplayCurrency] = useState('USD');
+            const [currentPage, setCurrentPage] = useState('onboarding');
+            const [notifications, setNotifications] = useState([]);
+
+            // Initialize from localStorage
+            useEffect(() => {
+                try {
+                    const profile = localStorage.getItem('tufinanza_profile');
+                    const onboarded = localStorage.getItem('tufinanza_onboarded');
+                    const movementsData = localStorage.getItem('tufinanza_movements');
+                    const goalsData = localStorage.getItem('tufinanza_goals');
+                    const displayCurrency = localStorage.getItem('tufinanza_display_currency');
+
+                    if (profile) {
+                        const parsed = JSON.parse(profile);
+                        setUserProfile({ ...parsed, createdAt: new Date(parsed.createdAt) });
+                        setBalanceDisplayCurrency(parsed.preferredBalanceCurrency || 'USD');
+                    }
+                    if (onboarded) setIsOnboarded(JSON.parse(onboarded));
+                    if (movementsData) {
+                        const parsed = JSON.parse(movementsData);
+                        setMovements(parsed.map(m => ({
+                            ...m,
+                            date: new Date(m.date),
+                            createdAt: new Date(m.createdAt)
+                        })));
+                    }
+                    if (goalsData) setSavingGoals(JSON.parse(goalsData));
+                    if (displayCurrency) setBalanceDisplayCurrency(displayCurrency);
+
+                    // Set initial page
+                    if (JSON.parse(onboarded || 'false')) {
+                        setCurrentPage('dashboard');
+                    }
+                } catch (error) {
+                    console.error('Error loading data:', error);
+                }
+            }, []);
+
+            const saveProfile = (profile) => {
+                setUserProfile(profile);
+                localStorage.setItem('tufinanza_profile', JSON.stringify(profile));
+            };
+
+            const updateProfile = (updates) => {
+                const updated = { ...userProfile, ...updates };
+                setUserProfile(updated);
+                localStorage.setItem('tufinanza_profile', JSON.stringify(updated));
+                addNotification({ type: 'success', title: 'Perfil actualizado' });
+            };
+
+            const completeOnboarding = () => {
+                setIsOnboarded(true);
+                setCurrentPage('dashboard');
+                localStorage.setItem('tufinanza_onboarded', JSON.stringify(true));
+                addNotification({ type: 'success', title: '¡Bienvenido a TuFinanza!' });
+            };
+
+            const addMovement = (movementData) => {
+                const movement = {
+                    ...movementData,
+                    id: generateId(),
+                    createdAt: new Date(),
+                    date: new Date(movementData.date)
+                };
+                
+                const newMovements = [...movements, movement];
+                setMovements(newMovements);
+                localStorage.setItem('tufinanza_movements', JSON.stringify(newMovements));
+                addNotification({ type: 'success', title: 'Movimiento agregado' });
+            };
+
+            const updateDisplayCurrency = (currency) => {
+                setBalanceDisplayCurrency(currency);
+                localStorage.setItem('tufinanza_display_currency', currency);
+            };
+
+            const addNotification = (notificationData) => {
+                const notification = {
+                    ...notificationData,
+                    id: generateId(),
+                    createdAt: new Date(),
+                };
+                
+                setNotifications(prev => [...prev, notification]);
+                
+                setTimeout(() => {
+                    setNotifications(prev => prev.filter(n => n.id !== notification.id));
+                }, 4000);
+            };
+
+            const getBalanceStats = () => {
+                let totalIncome = 0;
+                let totalExpenses = 0;
+                let totalSavings = 0;
+                
+                movements.forEach(movement => {
+                    let amount = movement.amount;
+                    
+                    // Convert to display currency
+                    if (movement.currency !== balanceDisplayCurrency) {
+                        const usdAmount = convertToUSD(amount, movement.currency);
+                        amount = convertFromUSD(usdAmount, balanceDisplayCurrency);
+                    }
+                    
+                    switch (movement.type) {
+                        case 'income': totalIncome += amount; break;
+                        case 'expense': totalExpenses += amount; break;
+                        case 'saving': totalSavings += amount; break;
+                    }
+                });
+                
+                return {
+                    totalIncome,
+                    totalExpenses,
+                    totalSavings,
+                    netBalance: totalIncome - totalExpenses + totalSavings,
+                    currency: balanceDisplayCurrency
+                };
+            };
+
+            const resetAllData = () => {
+                setUserProfile(null);
+                setIsOnboarded(false);
+                setMovements([]);
+                setSavingGoals([]);
+                setCurrentPage('onboarding');
+                localStorage.clear();
+                addNotification({ type: 'success', title: 'Datos eliminados' });
+            };
+
+            const value = {
+                userProfile,
+                setUserProfile: saveProfile,
+                updateUserProfile: updateProfile,
+                isOnboarded,
+                movements,
+                savingGoals,
+                balanceDisplayCurrency,
+                setBalanceDisplayCurrency: updateDisplayCurrency,
+                currentPage,
+                setCurrentPage,
+                notifications,
+                completeOnboarding,
+                addMovement,
+                addNotification,
+                getBalanceStats,
+                resetAllData,
+            };
+
+            return React.createElement(AppContext.Provider, { value }, children);
+        };
+
+        const useStore = () => React.useContext(AppContext);
+
+        // =========================
+        // COMPONENTS
+        // =========================
+
+        // Toast Notifications
+        const ToastContainer = () => {
+            const { notifications } = useStore();
+
+            return React.createElement('div', {
+                className: 'fixed bottom-20 right-4 space-y-2 z-50'
+            }, notifications.map(notification => 
+                React.createElement('div', {
+                    key: notification.id,
+                    className: `bg-white border rounded-lg shadow-lg p-4 max-w-sm transform transition-all animate-fade-in ${
+                        notification.type === 'success' ? 'border-green-200 bg-green-50' : 
+                        notification.type === 'error' ? 'border-red-200 bg-red-50' : 
+                        'border-blue-200 bg-blue-50'
+                    }`
+                }, [
+                    React.createElement('div', { className: 'flex items-center space-x-2' }, [
+                        React.createElement('span', { key: 'icon' }, 
+                            notification.type === 'success' ? '✅' : 
+                            notification.type === 'error' ? '❌' : 'ℹ️'
+                        ),
+                        React.createElement('span', { 
+                            key: 'title',
+                            className: 'font-medium text-sm'
+                        }, notification.title)
+                    ])
+                ])
+            ));
+        };
+
+        // Bottom Navigation
+        const BottomNavigation = () => {
+            const { currentPage, setCurrentPage } = useStore();
+
+            const navItems = [
+                { id: 'dashboard', name: 'Inicio', icon: '🏠' },
+                { id: 'movements', name: 'Movimientos', icon: '💸' },
+                { id: 'savings', name: 'Ahorros', icon: '🐷' },
+                { id: 'calendar', name: 'Calendario', icon: '📅' },
+                { id: 'settings', name: 'Ajustes', icon: '⚙️' }
+            ];
+
+            return React.createElement('nav', {
+                className: 'fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 safe-area-pb z-40'
+            }, 
+                React.createElement('div', {
+                    className: 'flex items-center justify-around px-2 py-2'
+                }, navItems.map(item => 
+                    React.createElement('button', {
+                        key: item.id,
+                        onClick: () => setCurrentPage(item.id),
+                        className: `flex flex-col items-center justify-center flex-1 py-2 px-1 rounded-lg transition-all ${
+                            currentPage === item.id 
+                                ? 'bg-blue-50 text-blue-600' 
+                                : 'text-gray-500 hover:bg-gray-50'
+                        }`
+                    }, [
+                        React.createElement('span', { 
+                            key: 'icon',
+                            className: 'text-xl mb-1'
+                        }, item.icon),
+                        React.createElement('span', {
+                            key: 'name',
+                            className: `text-xs font-medium ${currentPage === item.id ? 'text-blue-600' : 'text-gray-500'}`
+                        }, item.name)
+                    ])
+                ))
+            );
+        };
+
+        // =========================
+        // ONBOARDING COMPONENTS
+        // =========================
+
+        const WelcomeStep = ({ onNext }) => {
+            return React.createElement('div', {
+                className: 'min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex items-center justify-center p-4'
+            }, 
+                React.createElement('div', {
+                    className: 'w-full max-w-md mx-auto bg-white rounded-xl shadow-xl p-6'
+                }, [
+                    React.createElement('div', { 
+                        key: 'header',
+                        className: 'text-center mb-6'
+                    }, [
+                        React.createElement('div', {
+                            key: 'icon',
+                            className: 'w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-green-500 rounded-full flex items-center justify-center'
+                        }, React.createElement('span', { className: 'text-3xl' }, '💰')),
+                        React.createElement('h1', {
+                            key: 'title',
+                            className: 'text-2xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent'
+                        }, '¡Bienvenido a TuFinanza!'),
+                        React.createElement('p', {
+                            key: 'subtitle',
+                            className: 'text-gray-600 mt-2'
+                        }, 'Tu asistente personal de finanzas')
+                    ]),
+                    
+                    React.createElement('div', {
+                        key: 'features',
+                        className: 'space-y-4 mb-6'
+                    }, [
+                        React.createElement('div', {
+                            key: 'feature1',
+                            className: 'flex items-center space-x-3'
+                        }, [
+                            React.createElement('span', { key: 'icon' }, '🌍'),
+                            React.createElement('span', { key: 'text' }, 'Múltiples divisas globales')
+                        ]),
+                        React.createElement('div', {
+                            key: 'feature2',
+                            className: 'flex items-center space-x-3'
+                        }, [
+                            React.createElement('span', { key: 'icon' }, '📱'),
+                            React.createElement('span', { key: 'text' }, 'Funciona sin conexión')
+                        ]),
+                        React.createElement('div', {
+                            key: 'feature3',
+                            className: 'flex items-center space-x-3'
+                        }, [
+                            React.createElement('span', { key: 'icon' }, '🎯'),
+                            React.createElement('span', { key: 'text' }, 'Metas de ahorro personalizadas')
+                        ])
+                    ]),
+                    
+                    React.createElement('button', {
+                        key: 'button',
+                        onClick: onNext,
+                        className: 'w-full bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white font-semibold py-3 rounded-lg transition-all transform hover:scale-105'
+                    }, 'Comenzar')
+                ])
+            );
+        };
+
+        const ProfileStep = ({ onNext, onBack }) => {
+            const [formData, setFormData] = useState({
+                name: '', email: '', country: 'AR', currency: 'ARS',
+                preferredBalanceCurrency: 'USD'
+            });
+            const [errors, setErrors] = useState({});
+
+            const handleCountryChange = (countryCode) => {
+                const country = COUNTRIES.find(c => c.code === countryCode);
+                setFormData(prev => ({
+                    ...prev,
+                    country: countryCode,
+                    currency: country?.currency || 'USD'
+                }));
+            };
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                const newErrors = {};
+                
+                if (!formData.name.trim()) newErrors.name = 'Nombre requerido';
+                if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+                    newErrors.email = 'Email válido requerido';
+                }
+                
+                setErrors(newErrors);
+                if (Object.keys(newErrors).length === 0) {
+                    onNext({
+                        ...formData,
+                        id: generateId(),
+                        createdAt: new Date(),
+                        isOnboarded: false
+                    });
+                }
+            };
+
+            return React.createElement('div', {
+                className: 'min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex items-center justify-center p-4'
+            }, 
+                React.createElement('div', {
+                    className: 'w-full max-w-md mx-auto bg-white rounded-xl shadow-xl p-6'
+                }, 
+                    React.createElement('form', { onSubmit: handleSubmit, className: 'space-y-4' }, [
+                        React.createElement('h2', {
+                            key: 'title',
+                            className: 'text-xl font-bold text-center mb-6'
+                        }, '👤 Configuración de Perfil'),
+                        
+                        React.createElement('input', {
+                            key: 'name',
+                            type: 'text',
+                            placeholder: 'Nombre completo',
+                            value: formData.name,
+                            onChange: (e) => setFormData(prev => ({ ...prev, name: e.target.value })),
+                            className: `w-full p-3 border rounded-lg ${errors.name ? 'border-red-500' : 'border-gray-300'}`
+                        }),
+                        errors.name && React.createElement('p', { 
+                            key: 'name-error',
+                            className: 'text-red-500 text-xs' 
+                        }, errors.name),
+                        
+                        React.createElement('input', {
+                            key: 'email',
+                            type: 'email',
+                            placeholder: 'tu@email.com',
+                            value: formData.email,
+                            onChange: (e) => setFormData(prev => ({ ...prev, email: e.target.value })),
+                            className: `w-full p-3 border rounded-lg ${errors.email ? 'border-red-500' : 'border-gray-300'}`
+                        }),
+                        errors.email && React.createElement('p', { 
+                            key: 'email-error',
+                            className: 'text-red-500 text-xs' 
+                        }, errors.email),
+                        
+                        React.createElement('select', {
+                            key: 'country',
+                            value: formData.country,
+                            onChange: (e) => handleCountryChange(e.target.value),
+                            className: 'w-full p-3 border border-gray-300 rounded-lg'
+                        }, COUNTRIES.map(country => 
+                            React.createElement('option', {
+                                key: country.code,
+                                value: country.code
+                            }, `${country.flag} ${country.name} (${country.currency})`)
+                        )),
+
+                        React.createElement('div', {
+                            key: 'currency-info',
+                            className: 'bg-blue-50 p-4 rounded-lg'
+                        }, [
+                            React.createElement('p', { 
+                                key: 'label',
+                                className: 'text-sm font-medium text-blue-800 mb-2' 
+                            }, 'Ver balance en:'),
+                            React.createElement('select', {
+                                key: 'balance-currency',
+                                value: formData.preferredBalanceCurrency,
+                                onChange: (e) => setFormData(prev => ({ ...prev, preferredBalanceCurrency: e.target.value })),
+                                className: 'w-full p-2 border border-blue-200 rounded'
+                            }, [
+                                React.createElement('option', { key: 'usd', value: 'USD' }, '💵 Dólar (USD)'),
+                                React.createElement('option', { key: 'local', value: formData.currency }, `🏠 Divisa local (${formData.currency})`)
+                            ])
+                        ]),
+                        
+                        React.createElement('div', {
+                            key: 'buttons',
+                            className: 'flex space-x-3 pt-4'
+                        }, [
+                            React.createElement('button', {
+                                key: 'back',
+                                type: 'button',
+                                onClick: onBack,
+                                className: 'flex-1 px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50'
+                            }, 'Atrás'),
+                            React.createElement('button', {
+                                key: 'next',
+                                type: 'submit',
+                                className: 'flex-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-3 rounded-lg hover:from-purple-600 hover:to-blue-600'
+                            }, 'Continuar')
+                        ])
+                    ])
+                )
+            );
+        };
+
+        const CompletionStep = ({ profile, onComplete }) => {
+            const [progress, setProgress] = useState(0);
+
+            useEffect(() => {
+                const timer = setInterval(() => {
+                    setProgress(prev => {
+                        if (prev >= 100) {
+                            clearInterval(timer);
+                            return 100;
+                        }
+                        return prev + 20;
+                    });
+                }, 500);
+
+                return () => clearInterval(timer);
+            }, []);
+
+            const currency = CURRENCIES[profile.currency];
+            const balanceCurrency = CURRENCIES[profile.preferredBalanceCurrency];
+
+            return React.createElement('div', {
+                className: 'min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 flex items-center justify-center p-4'
+            }, 
+                React.createElement('div', {
+                    className: 'w-full max-w-md mx-auto bg-white rounded-xl shadow-xl p-6'
+                }, [
+                    React.createElement('div', {
+                        key: 'header',
+                        className: 'text-center mb-6'
+                    }, [
+                        React.createElement('div', {
+                            key: 'icon',
+                            className: 'w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center'
+                        }, React.createElement('span', { className: 'text-3xl' }, progress >= 100 ? '🎉' : '⚙️')),
+                        React.createElement('h2', {
+                            key: 'title',
+                            className: 'text-xl font-bold'
+                        }, progress >= 100 ? '¡Configuración completa!' : 'Configurando...')
+                    ]),
+
+                    React.createElement('div', {
+                        key: 'progress',
+                        className: 'mb-6'
+                    }, [
+                        React.createElement('div', {
+                            key: 'bar',
+                            className: 'w-full bg-gray-200 rounded-full h-2 mb-2'
+                        }, React.createElement('div', {
+                            className: 'bg-gradient-to-r from-green-500 to-blue-500 h-2 rounded-full transition-all',
+                            style: { width: `${progress}%` }
+                        })),
+                        React.createElement('p', {
+                            key: 'percent',
+                            className: 'text-center text-sm text-gray-600'
+                        }, `${Math.round(progress)}% completado`)
+                    ]),
+
+                    React.createElement('div', {
+                        key: 'summary',
+                        className: 'bg-gradient-to-r from-blue-50 to-green-50 p-4 rounded-lg mb-6'
+                    }, [
+                        React.createElement('h3', {
+                            key: 'title',
+                            className: 'font-semibold mb-3'
+                        }, 'Resumen de tu perfil'),
+                        React.createElement('div', {
+                            key: 'content',
+                            className: 'space-y-2 text-sm'
+                        }, [
+                            React.createElement('div', { 
+                                key: 'name',
+                                className: 'flex justify-between' 
+                            }, [
+                                React.createElement('span', { key: 'label' }, 'Nombre:'),
+                                React.createElement('span', { key: 'value', className: 'font-medium' }, profile.name)
+                            ]),
+                            React.createElement('div', { 
+                                key: 'country',
+                                className: 'flex justify-between' 
+                            }, [
+                                React.createElement('span', { key: 'label' }, 'País:'),
+                                React.createElement('span', { key: 'value', className: 'font-medium' }, profile.country)
+                            ]),
+                            React.createElement('div', { 
+                                key: 'currency',
+                                className: 'flex justify-between' 
+                            }, [
+                                React.createElement('span', { key: 'label' }, 'Divisa local:'),
+                                React.createElement('span', { key: 'value', className: 'font-medium' }, `${currency.symbol} ${currency.name}`)
+                            ]),
+                            React.createElement('div', { 
+                                key: 'balance-currency',
+                                className: 'flex justify-between' 
+                            }, [
+                                React.createElement('span', { key: 'label' }, 'Balance en:'),
+                                React.createElement('span', { key: 'value', className: 'font-medium' }, `${balanceCurrency.symbol} ${balanceCurrency.name}`)
+                            ])
+                        ])
+                    ]),
+
+                    progress >= 100 && React.createElement('button', {
+                        key: 'complete',
+                        onClick: onComplete,
+                        className: 'w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-semibold py-3 rounded-lg transition-all'
+                    }, '🚀 Ir al Dashboard')
+                ])
+            );
+        };
+
+        // =========================
+        // MAIN APP COMPONENTS
+        // =========================
+
+        const Dashboard = () => {
+            const { userProfile, getBalanceStats, balanceDisplayCurrency, setBalanceDisplayCurrency, movements, setCurrentPage } = useStore();
+
+            if (!userProfile) return null;
+
+            const stats = getBalanceStats();
+            const recentMovements = movements.slice(-3).reverse();
+
+            return React.createElement('div', {
+                className: 'min-h-screen bg-gray-50 p-4 space-y-6'
+            }, [
+                React.createElement('div', {
+                    key: 'header',
+                    className: 'pt-4'
+                }, [
+                    React.createElement('h1', {
+                        key: 'title',
+                        className: 'text-2xl font-bold text-gray-800'
+                    }, `¡Hola, ${userProfile.name.split(' ')[0]}! 👋`),
+                    React.createElement('p', {
+                        key: 'date',
+                        className: 'text-gray-600 text-sm'
+                    }, new Date().toLocaleDateString('es-AR', { 
+                        weekday: 'long', 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    }))
+                ]),
+
+                React.createElement('div', {
+                    key: 'balance',
+                    className: 'bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-xl p-6 shadow-lg'
+                }, [
+                    React.createElement('div', {
+                        key: 'header',
+                        className: 'flex items-center justify-between mb-4'
+                    }, [
+                        React.createElement('h2', {
+                            key: 'title',
+                            className: 'text-lg font-semibold flex items-center space-x-2'
+                        }, [
+                            React.createElement('span', { key: 'icon' }, '💼'),
+                            React.createElement('span', { key: 'text' }, 'Balance Neto')
+                        ]),
+                        React.createElement('select', {
+                            key: 'currency-selector',
+                            value: balanceDisplayCurrency,
+                            onChange: (e) => setBalanceDisplayCurrency(e.target.value),
+                            className: 'bg-white/10 border border-white/20 text-white text-xs rounded px-2 py-1'
+                        }, [
+                            React.createElement('option', { key: 'usd', value: 'USD' }, 'USD'),
+                            React.createElement('option', { key: 'local', value: userProfile.currency }, userProfile.currency)
+                        ])
+                    ]),
+                    React.createElement('p', {
+                        key: 'amount',
+                        className: 'text-3xl font-bold mb-2'
+                    }, formatBalance(stats.netBalance, balanceDisplayCurrency)),
+                    React.createElement('div', {
+                        key: 'breakdown',
+                        className: 'grid grid-cols-3 gap-4 pt-2 border-t border-white/20'
+                    }, [
+                        React.createElement('div', { 
+                            key: 'income',
+                            className: 'text-center' 
+                        }, [
+                            React.createElement('p', { key: 'label', className: 'text-white/80 text-xs' }, 'Ingresos'),
+                            React.createElement('p', { key: 'value', className: 'font-semibold text-sm' }, 
+                                formatBalance(stats.totalIncome, balanceDisplayCurrency))
+                        ]),
+                        React.createElement('div', { 
+                            key: 'expenses',
+                            className: 'text-center' 
+                        }, [
+                            React.createElement('p', { key: 'label', className: 'text-white/80 text-xs' }, 'Gastos'),
+                            React.createElement('p', { key: 'value', className: 'font-semibold text-sm' }, 
+                                formatBalance(stats.totalExpenses, balanceDisplayCurrency))
+                        ]),
+                        React.createElement('div', { 
+                            key: 'savings',
+                            className: 'text-center' 
+                        }, [
+                            React.createElement('p', { key: 'label', className: 'text-white/80 text-xs' }, 'Ahorros'),
+                            React.createElement('p', { key: 'value', className: 'font-semibold text-sm' }, 
+                                formatBalance(stats.totalSavings, balanceDisplayCurrency))
+                        ])
+                    ])
+                ]),
+
+                React.createElement('div', {
+                    key: 'actions',
+                    className: 'bg-white rounded-xl p-6 shadow-lg'
+                }, [
+                    React.createElement('h3', {
+                        key: 'title',
+                        className: 'font-semibold mb-4 flex items-center space-x-2'
+                    }, [
+                        React.createElement('span', { key: 'icon' }, '⚡'),
+                        React.createElement('span', { key: 'text' }, 'Acciones Rápidas')
+                    ]),
+                    React.createElement('div', {
+                        key: 'grid',
+                        className: 'grid grid-cols-2 gap-3'
+                    }, [
+                        React.createElement('button', {
+                            key: 'income',
+                            onClick: () => setCurrentPage('movements'),
+                            className: 'h-20 bg-green-100 text-green-700 rounded-lg flex flex-col items-center justify-center hover:bg-green-200 transition-colors'
+                        }, [
+                            React.createElement('span', { key: 'icon', className: 'text-2xl mb-1' }, '💰'),
+                            React.createElement('span', { key: 'text', className: 'text-xs font-medium' }, 'Agregar Ingreso')
+                        ]),
+                        React.createElement('button', {
+                            key: 'expense',
+                            onClick: () => setCurrentPage('movements'),
+                            className: 'h-20 bg-red-100 text-red-700 rounded-lg flex flex-col items-center justify-center hover:bg-red-200 transition-colors'
+                        }, [
+                            React.createElement('span', { key: 'icon', className: 'text-2xl mb-1' }, '💸'),
+                            React.createElement('span', { key: 'text', className: 'text-xs font-medium' }, 'Registrar Gasto')
+                        ]),
+                        React.createElement('button', {
+                            key: 'saving',
+                            onClick: () => setCurrentPage('savings'),
+                            className: 'h-20 bg-blue-100 text-blue-700 rounded-lg flex flex-col items-center justify-center hover:bg-blue-200 transition-colors'
+                        }, [
+                            React.createElement('span', { key: 'icon', className: 'text-2xl mb-1' }, '🐷'),
+                            React.createElement('span', { key: 'text', className: 'text-xs font-medium' }, 'Ahorrar')
+                        ]),
+                        React.createElement('button', {
+                            key: 'calendar',
+                            onClick: () => setCurrentPage('calendar'),
+                            className: 'h-20 bg-purple-100 text-purple-700 rounded-lg flex flex-col items-center justify-center hover:bg-purple-200 transition-colors'
+                        }, [
+                            React.createElement('span', { key: 'icon', className: 'text-2xl mb-1' }, '📅'),
+                            React.createElement('span', { key: 'text', className: 'text-xs font-medium' }, 'Ver Calendario')
+                        ])
+                    ])
+                ]),
+
+                React.createElement('div', {
+                    key: 'recent',
+                    className: 'bg-white rounded-xl p-6 shadow-lg'
+                }, [
+                    React.createElement('h3', {
+                        key: 'title',
+                        className: 'font-semibold mb-4 flex items-center space-x-2'
+                    }, [
+                        React.createElement('span', { key: 'icon' }, '📊'),
+                        React.createElement('span', { key: 'text' }, 'Movimientos Recientes')
+                    ]),
+                    recentMovements.length === 0 ? 
+                        React.createElement('div', {
+                            key: 'empty',
+                            className: 'text-center py-8'
+                        }, [
+                            React.createElement('span', { key: 'icon', className: 'text-4xl block mb-4' }, '📝'),
+                            React.createElement('p', { key: 'text', className: 'text-gray-600 mb-4' }, 'No hay movimientos'),
+                            React.createElement('button', {
+                                key: 'button',
+                                onClick: () => setCurrentPage('movements'),
+                                className: 'bg-blue-600 text-white px-4 py-2 rounded-lg'
+                            }, 'Agregar primero')
+                        ]) :
+                        React.createElement('div', {
+                            key: 'list',
+                            className: 'space-y-3'
+                        }, recentMovements.map(movement => 
+                            React.createElement('div', {
+                                key: movement.id,
+                                className: 'flex items-center justify-between p-3 bg-gray-50 rounded-lg'
+                            }, [
+                                React.createElement('div', {
+                                    key: 'info',
+                                    className: 'flex items-center space-x-3'
+                                }, [
+                                    React.createElement('span', { 
+                                        key: 'icon',
+                                        className: 'text-xl'
+                                    }, movement.type === 'income' ? '💰' : movement.type === 'expense' ? '💸' : '🐷'),
+                                    React.createElement('div', { key: 'details' }, [
+                                        React.createElement('p', { 
+                                            key: 'desc',
+                                            className: 'font-medium text-gray-800' 
+                                        }, movement.description),
+                                        React.createElement('p', { 
+                                            key: 'cat',
+                                            className: 'text-sm text-gray-600' 
+                                        }, movement.category)
+                                    ])
+                                ]),
+                                React.createElement('p', {
+                                    key: 'amount',
+                                    className: `font-semibold ${
+                                        movement.type === 'income' ? 'text-green-600' : 
+                                        movement.type === 'expense' ? 'text-red-600' : 'text-blue-600'
+                                    }`
+                                }, `${movement.type === 'expense' ? '-' : '+'}${formatMovementAmount(movement.amount, movement.currency)}`)
+                            ])
+                        ))
+                ])
+            ]);
+        };
+
+        const Movements = () => {
+            const { movements, addMovement, userProfile, setCurrentPage } = useStore();
+            const [showForm, setShowForm] = useState(false);
+            const [formData, setFormData] = useState({
+                type: 'income', amount: '', currency: 'USD', category: '', description: '', date: new Date().toISOString().split('T')[0]
+            });
+
+            useEffect(() => {
+                if (userProfile) {
+                    setFormData(prev => ({ ...prev, currency: userProfile.currency }));
+                }
+            }, [userProfile]);
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                if (!formData.amount || !formData.category || !formData.description) return;
+
+                addMovement({
+                    ...formData,
+                    amount: parseFloat(formData.amount) || 0,
+                    date: formData.date
+                });
+
+                setFormData({
+                    type: 'income', amount: '', currency: userProfile?.currency || 'USD',
+                    category: '', description: '', date: new Date().toISOString().split('T')[0]
+                });
+                setShowForm(false);
+            };
+
+            const categories = CATEGORIES[formData.type] || [];
+            const sortedMovements = [...movements].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            return React.createElement('div', {
+                className: 'min-h-screen bg-gray-50 p-4 space-y-6'
+            }, [
+                React.createElement('div', {
+                    key: 'header',
+                    className: 'pt-4'
+                }, React.createElement('h1', {
+                    className: 'text-2xl font-bold text-gray-800 flex items-center space-x-2'
+                }, [
+                    React.createElement('span', { key: 'icon' }, '💸'),
+                    React.createElement('span', { key: 'text' }, 'Movimientos')
+                ])),
+
+                React.createElement('div', {
+                    key: 'quick-actions',
+                    className: 'grid grid-cols-3 gap-3'
+                }, [
+                    React.createElement('button', {
+                        key: 'income',
+                        onClick: () => {
+                            setFormData(prev => ({ ...prev, type: 'income', category: '' }));
+                            setShowForm(true);
+                        },
+                        className: 'h-16 bg-green-500 hover:bg-green-600 text-white rounded-lg flex flex-col items-center justify-center'
+                    }, [
+                        React.createElement('span', { key: 'icon', className: 'text-xl' }, '💰'),
+                        React.createElement('span', { key: 'text', className: 'text-xs' }, 'Ingreso')
+                    ]),
+                    React.createElement('button', {
+                        key: 'expense',
+                        onClick: () => {
+                            setFormData(prev => ({ ...prev, type: 'expense', category: '' }));
+                            setShowForm(true);
+                        },
+                        className: 'h-16 bg-red-500 hover:bg-red-600 text-white rounded-lg flex flex-col items-center justify-center'
+                    }, [
+                        React.createElement('span', { key: 'icon', className: 'text-xl' }, '💸'),
+                        React.createElement('span', { key: 'text', className: 'text-xs' }, 'Gasto')
+                    ]),
+                    React.createElement('button', {
+                        key: 'saving',
+                        onClick: () => {
+                            setFormData(prev => ({ ...prev, type: 'saving', category: '' }));
+                            setShowForm(true);
+                        },
+                        className: 'h-16 bg-blue-500 hover:bg-blue-600 text-white rounded-lg flex flex-col items-center justify-center'
+                    }, [
+                        React.createElement('span', { key: 'icon', className: 'text-xl' }, '🐷'),
+                        React.createElement('span', { key: 'text', className: 'text-xs' }, 'Ahorro')
+                    ])
+                ]),
+
+                showForm && React.createElement('div', {
+                    key: 'form',
+                    className: 'bg-white rounded-xl p-6 shadow-lg'
+                }, 
+                    React.createElement('form', { onSubmit: handleSubmit, className: 'space-y-4' }, [
+                        React.createElement('div', {
+                            key: 'header',
+                            className: 'flex items-center justify-between mb-4'
+                        }, [
+                            React.createElement('h3', { 
+                                key: 'title',
+                                className: 'font-semibold' 
+                            }, 'Nuevo Movimiento'),
+                            React.createElement('button', {
+                                key: 'close',
+                                type: 'button',
+                                onClick: () => setShowForm(false),
+                                className: 'text-gray-500 hover:text-gray-700'
+                            }, '✕')
+                        ]),
+                        
+                        React.createElement('select', {
+                            key: 'type',
+                            value: formData.type,
+                            onChange: (e) => setFormData(prev => ({ ...prev, type: e.target.value, category: '' })),
+                            className: 'w-full p-3 border border-gray-300 rounded-lg'
+                        }, [
+                            React.createElement('option', { key: 'income', value: 'income' }, '💰 Ingreso'),
+                            React.createElement('option', { key: 'expense', value: 'expense' }, '💸 Gasto'),
+                            React.createElement('option', { key: 'saving', value: 'saving' }, '🐷 Ahorro')
+                        ]),
+
+                        React.createElement('div', {
+                            key: 'amount-currency',
+                            className: 'grid grid-cols-2 gap-3'
+                        }, [
+                            React.createElement('input', {
+                                key: 'amount',
+                                type: 'number',
+                                placeholder: 'Monto',
+                                value: formData.amount,
+                                onChange: (e) => setFormData(prev => ({ ...prev, amount: e.target.value })),
+                                className: 'p-3 border border-gray-300 rounded-lg',
+                                required: true
+                            }),
+                            React.createElement('select', {
+                                key: 'currency',
+                                value: formData.currency,
+                                onChange: (e) => setFormData(prev => ({ ...prev, currency: e.target.value })),
+                                className: 'p-3 border border-gray-300 rounded-lg'
+                            }, Object.values(CURRENCIES).map(currency => 
+                                React.createElement('option', {
+                                    key: currency.code,
+                                    value: currency.code
+                                }, `${currency.symbol} ${currency.name}`)
+                            ))
+                        ]),
+
+                        React.createElement('select', {
+                            key: 'category',
+                            value: formData.category,
+                            onChange: (e) => setFormData(prev => ({ ...prev, category: e.target.value })),
+                            className: 'w-full p-3 border border-gray-300 rounded-lg',
+                            required: true
+                        }, [
+                            React.createElement('option', { key: 'empty', value: '' }, 'Selecciona una categoría'),
+                            ...categories.map(category => 
+                                React.createElement('option', {
+                                    key: category.id,
+                                    value: category.id
+                                }, `${category.icon} ${category.name}`)
+                            )
+                        ]),
+
+                        React.createElement('input', {
+                            key: 'description',
+                            type: 'text',
+                            placeholder: 'Descripción',
+                            value: formData.description,
+                            onChange: (e) => setFormData(prev => ({ ...prev, description: e.target.value })),
+                            className: 'w-full p-3 border border-gray-300 rounded-lg',
+                            required: true
+                        }),
+
+                        React.createElement('input', {
+                            key: 'date',
+                            type: 'date',
+                            value: formData.date,
+                            onChange: (e) => setFormData(prev => ({ ...prev, date: e.target.value })),
+                            className: 'w-full p-3 border border-gray-300 rounded-lg',
+                            required: true
+                        }),
+
+                        React.createElement('button', {
+                            key: 'submit',
+                            type: 'submit',
+                            className: 'w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-colors'
+                        }, 'Agregar Movimiento')
+                    ])
+                ),
+
+                React.createElement('div', {
+                    key: 'list',
+                    className: 'bg-white rounded-xl p-6 shadow-lg'
+                }, [
+                    React.createElement('h3', {
+                        key: 'title',
+                        className: 'font-semibold mb-4'
+                    }, 'Lista de Movimientos'),
+                    sortedMovements.length === 0 ? 
+                        React.createElement('div', {
+                            key: 'empty',
+                            className: 'text-center py-8'
+                        }, [
+                            React.createElement('span', { key: 'icon', className: 'text-4xl block mb-4' }, '📝'),
+                            React.createElement('p', { key: 'text', className: 'text-gray-600' }, 'No hay movimientos registrados')
+                        ]) :
+                        React.createElement('div', {
+                            key: 'movements',
+                            className: 'space-y-3'
+                        }, sortedMovements.map(movement => 
+                            React.createElement('div', {
+                                key: movement.id,
+                                className: 'flex items-center justify-between p-3 bg-gray-50 rounded-lg'
+                            }, [
+                                React.createElement('div', {
+                                    key: 'info',
+                                    className: 'flex items-center space-x-3'
+                                }, [
+                                    React.createElement('span', {
+                                        key: 'icon',
+                                        className: `text-xl w-10 h-10 rounded-full flex items-center justify-center ${
+                                            movement.type === 'income' ? 'bg-green-100' : 
+                                            movement.type === 'expense' ? 'bg-red-100' : 'bg-blue-100'
+                                        }`
+                                    }, movement.type === 'income' ? '💰' : movement.type === 'expense' ? '💸' : '🐷'),
+                                    React.createElement('div', { key: 'details' }, [
+                                        React.createElement('p', { 
+                                            key: 'desc',
+                                            className: 'font-medium text-gray-800' 
+                                        }, movement.description),
+                                        React.createElement('p', { 
+                                            key: 'cat',
+                                            className: 'text-sm text-gray-600' 
+                                        }, movement.category),
+                                        React.createElement('p', { 
+                                            key: 'date',
+                                            className: 'text-xs text-gray-500' 
+                                        }, new Date(movement.date).toLocaleDateString('es-AR'))
+                                    ])
+                                ]),
+                                React.createElement('p', {
+                                    key: 'amount',
+                                    className: `font-semibold ${
+                                        movement.type === 'income' ? 'text-green-600' : 
+                                        movement.type === 'expense' ? 'text-red-600' : 'text-blue-600'
+                                    }`
+                                }, `${movement.type === 'expense' ? '-' : '+'}${formatMovementAmount(movement.amount, movement.currency)}`)
+                            ])
+                        ))
+                ])
+            ]);
+        };
+
+        const Settings = () => {
+            const { userProfile, updateUserProfile, resetAllData, balanceDisplayCurrency, setBalanceDisplayCurrency, setCurrentPage } = useStore();
+            const [showEdit, setShowEdit] = useState(false);
+            const [editForm, setEditForm] = useState({});
+            const [confirmText, setConfirmText] = useState('');
+
+            useEffect(() => {
+                if (userProfile) {
+                    setEditForm(userProfile);
+                }
+            }, [userProfile]);
+
+            if (!userProfile) return null;
+
+            const handleProfileUpdate = (e) => {
+                e.preventDefault();
+                updateUserProfile(editForm);
+                setShowEdit(false);
+            };
+
+            const handleCountryChange = (countryCode) => {
+                const country = COUNTRIES.find(c => c.code === countryCode);
+                setEditForm(prev => ({
+                    ...prev,
+                    country: countryCode,
+                    currency: country?.currency || 'USD'
+                }));
+            };
+
+            const handleReset = () => {
+                if (confirmText === 'REINICIAR') {
+                    resetAllData();
+                    setCurrentPage('onboarding');
+                    setConfirmText('');
+                }
+            };
+
+            const country = COUNTRIES.find(c => c.code === userProfile.country);
+            const currency = CURRENCIES[userProfile.currency];
+            const balanceCurrency = CURRENCIES[balanceDisplayCurrency];
+
+            return React.createElement('div', {
+                className: 'min-h-screen bg-gray-50 p-4 space-y-6'
+            }, [
+                React.createElement('div', {
+                    key: 'header',
+                    className: 'pt-4'
+                }, React.createElement('h1', {
+                    className: 'text-2xl font-bold text-gray-800 flex items-center space-x-2'
+                }, [
+                    React.createElement('span', { key: 'icon' }, '⚙️'),
+                    React.createElement('span', { key: 'text' }, 'Configuración')
+                ])),
+
+                React.createElement('div', {
+                    key: 'currency-settings',
+                    className: 'bg-white rounded-xl p-6 shadow-lg'
+                }, [
+                    React.createElement('h3', {
+                        key: 'title',
+                        className: 'font-semibold mb-4 flex items-center space-x-2'
+                    }, [
+                        React.createElement('span', { key: 'icon' }, '💱'),
+                        React.createElement('span', { key: 'text' }, 'Configuración de Divisas')
+                    ]),
+                    React.createElement('div', {
+                        key: 'content',
+                        className: 'space-y-4'
+                    }, [
+                        React.createElement('div', { key: 'selector' }, [
+                            React.createElement('label', { 
+                                key: 'label',
+                                className: 'block text-sm font-medium mb-2' 
+                            }, 'Ver balance en:'),
+                            React.createElement('select', {
+                                key: 'select',
+                                value: balanceDisplayCurrency,
+                                onChange: (e) => setBalanceDisplayCurrency(e.target.value),
+                                className: 'w-full p-3 border border-gray-300 rounded-lg'
+                            }, [
+                                React.createElement('option', { key: 'usd', value: 'USD' }, '💵 Dólar (USD)'),
+                                React.createElement('option', { key: 'local', value: userProfile.currency }, `🏠 Divisa local (${userProfile.currency})`)
+                            ])
+                        ])
+                    ])
+                ]),
+
+                React.createElement('div', {
+                    key: 'profile',
+                    className: 'bg-white rounded-xl p-6 shadow-lg'
+                }, [
+                    React.createElement('div', {
+                        key: 'header',
+                        className: 'flex items-center justify-between mb-4'
+                    }, [
+                        React.createElement('h3', {
+                            key: 'title',
+                            className: 'font-semibold flex items-center space-x-2'
+                        }, [
+                            React.createElement('span', { key: 'icon' }, '👤'),
+                            React.createElement('span', { key: 'text' }, 'Perfil')
+                        ]),
+                        React.createElement('button', {
+                            key: 'edit',
+                            onClick: () => setShowEdit(true),
+                            className: 'text-blue-600 hover:text-blue-800 text-sm'
+                        }, '✏️ Editar')
+                    ]),
+                    React.createElement('div', {
+                        key: 'info',
+                        className: 'space-y-3'
+                    }, [
+                        React.createElement('div', {
+                            key: 'name',
+                            className: 'flex justify-between p-3 bg-gray-50 rounded'
+                        }, [
+                            React.createElement('span', { key: 'label' }, 'Nombre:'),
+                            React.createElement('span', { key: 'value', className: 'font-medium' }, userProfile.name)
+                        ]),
+                        React.createElement('div', {
+                            key: 'email',
+                            className: 'flex justify-between p-3 bg-gray-50 rounded'
+                        }, [
+                            React.createElement('span', { key: 'label' }, 'Email:'),
+                            React.createElement('span', { key: 'value', className: 'font-medium' }, userProfile.email)
+                        ]),
+                        React.createElement('div', {
+                            key: 'country',
+                            className: 'flex justify-between p-3 bg-gray-50 rounded'
+                        }, [
+                            React.createElement('span', { key: 'label' }, 'País:'),
+                            React.createElement('span', { key: 'value', className: 'font-medium' }, `${country?.flag} ${country?.name}`)
+                        ]),
+                        React.createElement('div', {
+                            key: 'currency',
+                            className: 'flex justify-between p-3 bg-gray-50 rounded'
+                        }, [
+                            React.createElement('span', { key: 'label' }, 'Divisa:'),
+                            React.createElement('span', { key: 'value', className: 'font-medium' }, `${currency?.symbol} ${currency?.name}`)
+                        ])
+                    ])
+                ]),
+
+                // Profile Edit Modal
+                showEdit && React.createElement('div', {
+                    key: 'edit-modal',
+                    className: 'fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50'
+                }, 
+                    React.createElement('div', {
+                        className: 'bg-white rounded-xl p-6 w-full max-w-md'
+                    }, 
+                        React.createElement('form', { onSubmit: handleProfileUpdate, className: 'space-y-4' }, [
+                            React.createElement('h3', {
+                                key: 'title',
+                                className: 'font-semibold text-lg mb-4'
+                            }, 'Editar Perfil'),
+                            
+                            React.createElement('input', {
+                                key: 'name',
+                                type: 'text',
+                                placeholder: 'Nombre',
+                                value: editForm.name || '',
+                                onChange: (e) => setEditForm(prev => ({ ...prev, name: e.target.value })),
+                                className: 'w-full p-3 border border-gray-300 rounded-lg'
+                            }),
+                            
+                            React.createElement('input', {
+                                key: 'email',
+                                type: 'email',
+                                placeholder: 'Email',
+                                value: editForm.email || '',
+                                onChange: (e) => setEditForm(prev => ({ ...prev, email: e.target.value })),
+                                className: 'w-full p-3 border border-gray-300 rounded-lg'
+                            }),
+                            
+                            React.createElement('select', {
+                                key: 'country',
+                                value: editForm.country || 'AR',
+                                onChange: (e) => handleCountryChange(e.target.value),
+                                className: 'w-full p-3 border border-gray-300 rounded-lg'
+                            }, COUNTRIES.map(country => 
+                                React.createElement('option', {
+                                    key: country.code,
+                                    value: country.code
+                                }, `${country.flag} ${country.name} (${country.currency})`)
+                            )),
+
+                            React.createElement('div', {
+                                key: 'buttons',
+                                className: 'flex space-x-3 pt-4'
+                            }, [
+                                React.createElement('button', {
+                                    key: 'cancel',
+                                    type: 'button',
+                                    onClick: () => setShowEdit(false),
+                                    className: 'flex-1 px-4 py-2 border border-gray-300 rounded-lg'
+                                }, 'Cancelar'),
+                                React.createElement('button', {
+                                    key: 'save',
+                                    type: 'submit',
+                                    className: 'flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg'
+                                }, 'Guardar')
+                            ])
+                        ])
+                    )
+                ),
+
+                React.createElement('div', {
+                    key: 'pwa-info',
+                    className: 'bg-white rounded-xl p-6 shadow-lg'
+                }, [
+                    React.createElement('h3', {
+                        key: 'title',
+                        className: 'font-semibold mb-4 flex items-center space-x-2'
+                    }, [
+                        React.createElement('span', { key: 'icon' }, '📱'),
+                        React.createElement('span', { key: 'text' }, 'Instalar en iPhone')
+                    ]),
+                    React.createElement('div', {
+                        key: 'instructions',
+                        className: 'bg-blue-50 p-4 rounded-lg space-y-2 text-sm'
+                    }, [
+                        React.createElement('p', { key: 'step1' }, '1️⃣ Abre Safari en tu iPhone'),
+                        React.createElement('p', { key: 'step2' }, '2️⃣ Toca el botón compartir'),
+                        React.createElement('p', { key: 'step3' }, '3️⃣ Selecciona "Añadir a inicio"'),
+                        React.createElement('p', { key: 'step4' }, '4️⃣ ¡Ya tienes TuFinanza en tu inicio!'),
+                        React.createElement('p', { 
+                            key: 'benefits',
+                            className: 'text-green-600 text-xs mt-3' 
+                        }, '✅ Funciona offline • ✅ Sin App Store • ✅ Actualizaciones automáticas')
+                    ])
+                ]),
+
+                React.createElement('div', {
+                    key: 'reset',
+                    className: 'bg-white rounded-xl p-6 shadow-lg'
+                }, [
+                    React.createElement('h3', {
+                        key: 'title',
+                        className: 'font-semibold mb-4 flex items-center space-x-2'
+                    }, [
+                        React.createElement('span', { key: 'icon' }, '🗂️'),
+                        React.createElement('span', { key: 'text' }, 'Gestión de Datos')
+                    ]),
+                    React.createElement('div', {
+                        key: 'reset-section',
+                        className: 'bg-red-50 p-4 rounded-lg'
+                    }, [
+                        React.createElement('h4', {
+                            key: 'title',
+                            className: 'font-medium text-red-800 mb-2'
+                        }, '⚠️ Reiniciar Todos los Datos'),
+                        React.createElement('p', {
+                            key: 'desc',
+                            className: 'text-sm text-red-700 mb-3'
+                        }, 'Esta acción eliminará todos tus datos y no se puede deshacer.'),
+                        React.createElement('input', {
+                            key: 'confirm',
+                            type: 'text',
+                            placeholder: 'Escribe "REINICIAR" para confirmar',
+                            value: confirmText,
+                            onChange: (e) => setConfirmText(e.target.value),
+                            className: 'w-full p-2 border border-red-300 rounded mb-3'
+                        }),
+                        React.createElement('button', {
+                            key: 'button',
+                            onClick: handleReset,
+                            disabled: confirmText !== 'REINICIAR',
+                            className: 'bg-red-600 text-white px-4 py-2 rounded disabled:bg-gray-400'
+                        }, 'Reiniciar Todo')
+                    ])
+                ])
+            ]);
+        };
+
+        const Savings = () => {
+            const { savingGoals, setCurrentPage } = useStore();
+
+            return React.createElement('div', {
+                className: 'min-h-screen bg-gray-50 p-4 space-y-6'
+            }, [
+                React.createElement('div', {
+                    key: 'header',
+                    className: 'pt-4'
+                }, React.createElement('h1', {
+                    className: 'text-2xl font-bold text-gray-800 flex items-center space-x-2'
+                }, [
+                    React.createElement('span', { key: 'icon' }, '🐷'),
+                    React.createElement('span', { key: 'text' }, 'Alcancía')
+                ])),
+
+                React.createElement('div', {
+                    key: 'content',
+                    className: 'bg-white rounded-xl p-6 shadow-lg'
+                }, [
+                    React.createElement('div', {
+                        key: 'empty',
+                        className: 'text-center py-8'
+                    }, [
+                        React.createElement('span', { key: 'icon', className: 'text-4xl block mb-4' }, '🎯'),
+                        React.createElement('p', { key: 'text', className: 'text-gray-600 mb-4' }, 'Metas de ahorro próximamente...'),
+                        React.createElement('button', {
+                            key: 'button',
+                            onClick: () => setCurrentPage('dashboard'),
+                            className: 'bg-blue-600 text-white px-6 py-2 rounded-lg'
+                        }, 'Volver al Inicio')
+                    ])
+                ])
+            ]);
+        };
+
+        const Calendar = () => {
+            const { setCurrentPage } = useStore();
+
+            return React.createElement('div', {
+                className: 'min-h-screen bg-gray-50 p-4 space-y-6'
+            }, [
+                React.createElement('div', {
+                    key: 'header',
+                    className: 'pt-4'
+                }, React.createElement('h1', {
+                    className: 'text-2xl font-bold text-gray-800 flex items-center space-x-2'
+                }, [
+                    React.createElement('span', { key: 'icon' }, '📅'),
+                    React.createElement('span', { key: 'text' }, 'Calendario')
+                ])),
+
+                React.createElement('div', {
+                    key: 'content',
+                    className: 'bg-white rounded-xl p-6 shadow-lg'
+                }, [
+                    React.createElement('div', {
+                        key: 'empty',
+                        className: 'text-center py-8'
+                    }, [
+                        React.createElement('span', { key: 'icon', className: 'text-4xl block mb-4' }, '📅'),
+                        React.createElement('p', { key: 'text', className: 'text-gray-600 mb-4' }, 'Vista de calendario próximamente...'),
+                        React.createElement('button', {
+                            key: 'button',
+                            onClick: () => setCurrentPage('dashboard'),
+                            className: 'bg-blue-600 text-white px-6 py-2 rounded-lg'
+                        }, 'Volver al Inicio')
+                    ])
+                ])
+            ]);
+        };
+
+        // =========================
+        // MAIN APP COMPONENT
+        // =========================
+
+        const App = () => {
+            const { userProfile, isOnboarded, currentPage, setUserProfile, completeOnboarding, setCurrentPage } = useStore();
+            const [onboardingStep, setOnboardingStep] = useState('welcome');
+            const [tempProfile, setTempProfile] = useState(null);
+
+            useEffect(() => {
+                // Register service worker
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.register('/sw.js')
+                        .then(() => console.log('SW registered'))
+                        .catch(err => console.log('SW registration failed', err));
+                }
+            }, []);
+
+            // Onboarding flow
+            if (!isOnboarded) {
+                switch (onboardingStep) {
+                    case 'welcome':
+                        return React.createElement(WelcomeStep, {
+                            onNext: () => setOnboardingStep('profile')
+                        });
+                    case 'profile':
+                        return React.createElement(ProfileStep, {
+                            onNext: (profile) => {
+                                setTempProfile(profile);
+                                setUserProfile(profile);
+                                setOnboardingStep('completion');
+                            },
+                            onBack: () => setOnboardingStep('welcome')
+                        });
+                    case 'completion':
+                        return React.createElement(CompletionStep, {
+                            profile: tempProfile,
+                            onComplete: () => {
+                                completeOnboarding();
+                                setCurrentPage('dashboard');
+                            }
+                        });
+                }
+            }
+
+            // Main app interface
+            return React.createElement('div', {
+                className: 'min-h-screen bg-gray-50 pb-16'
+            }, [
+                React.createElement('main', { key: 'main' }, (() => {
+                    switch (currentPage) {
+                        case 'dashboard': return React.createElement(Dashboard);
+                        case 'movements': return React.createElement(Movements);
+                        case 'savings': return React.createElement(Savings);
+                        case 'calendar': return React.createElement(Calendar);
+                        case 'settings': return React.createElement(Settings);
+                        default: return React.createElement(Dashboard);
+                    }
+                })()),
+                React.createElement(BottomNavigation, { key: 'nav' }),
+                React.createElement(ToastContainer, { key: 'toast' })
+            ]);
+        };
+
+        // =========================
+        // INITIALIZE APP
+        // =========================
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(
+            React.createElement(AppProvider, null,
+                React.createElement(App)
+            )
+        );
+
+        // Install PWA prompt handler
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            window.deferredPrompt = e;
+        });
+
+        console.log('🚀 TuFinanza PWA loaded successfully!');
+        console.log('📱 Ready for offline use and iPhone installation');
+    </script>
+</body>
+</html>
